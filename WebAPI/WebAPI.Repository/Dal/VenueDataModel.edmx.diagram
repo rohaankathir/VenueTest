@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7ba053cca7604a74ad46c08cf1d5a2be" Name="Diagram1" ZoomLevel="71">
+        <EntityTypeShape EntityType="VenueModel.City" Width="1.5" PointX="5.875" PointY="2.625" />
+        <EntityTypeShape EntityType="VenueModel.Country" Width="1.5" PointX="5.875" PointY="0.625" />
+        <EntityTypeShape EntityType="VenueModel.Currency" Width="1.5" PointX="13" PointY="0.875" />
+        <EntityTypeShape EntityType="VenueModel.EventStyle" Width="1.5" PointX="13.125" PointY="5" />
+        <EntityTypeShape EntityType="VenueModel.EventType" Width="1.5" PointX="13.125" PointY="7.375" />
+        <EntityTypeShape EntityType="VenueModel.Facility" Width="1.5" PointX="8.25" PointY="5" />
+        <EntityTypeShape EntityType="VenueModel.FacilityEventStyle" Width="2" PointX="10.75" PointY="5" />
+        <EntityTypeShape EntityType="VenueModel.FacilityEventType" Width="1.875" PointX="10.75" PointY="7.375" />
+        <EntityTypeShape EntityType="VenueModel.FacilityImage" Width="1.5" PointX="5.625" PointY="7.375" />
+        <EntityTypeShape EntityType="VenueModel.FacilityRating" Width="1.5" PointX="8.25" PointY="10" />
+        <EntityTypeShape EntityType="VenueModel.FacilityVideo" Width="1.5" PointX="5.625" PointY="5.125" />
+        <EntityTypeShape EntityType="VenueModel.MemberType" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="VenueModel.sysdiagram" Width="1.5" PointX="10.75" PointY="9.875" />
+        <EntityTypeShape EntityType="VenueModel.User" Width="1.5" PointX="0.5" PointY="3.375" />
+        <EntityTypeShape EntityType="VenueModel.UserAccessLevel" Width="1.5" PointX="2.875" PointY="3.5" />
+        <EntityTypeShape EntityType="VenueModel.UserGroup" Width="1.5" PointX="2.875" PointY="0.5" />
+        <EntityTypeShape EntityType="VenueModel.UserPassword" Width="1.5" PointX="2.875" PointY="5.5" />
+        <EntityTypeShape EntityType="VenueModel.Venue" Width="1.5" PointX="8.25" PointY="0.625" />
+        <EntityTypeShape EntityType="VenueModel.VenueRating" Width="1.5" PointX="10.375" PointY="0.5" />
+        <EntityTypeShape EntityType="VenueModel.VenueType" Width="1.5" PointX="10.375" PointY="2.5" />
+        <AssociationConnector Association="VenueModel.FK_Venue_Country" />
+        <AssociationConnector Association="VenueModel.FK_FacilityEventStyle_EventStyle" />
+        <AssociationConnector Association="VenueModel.FK_FacilityEventType_EventType" />
+        <AssociationConnector Association="VenueModel.FK_Facility_Venue" />
+        <AssociationConnector Association="VenueModel.FK_User_MemberType" />
+        <AssociationConnector Association="VenueModel.FK_User_UserAccessLevel" />
+        <AssociationConnector Association="VenueModel.FK_UserPassword_User" />
+        <AssociationConnector Association="VenueModel.FK_Venue_VenueType" />
+        <AssociationConnector Association="VenueModel.FK_VenueRating_Venue" />
+        <AssociationConnector Association="VenueModel.FK_FacilityEventStyle_Facility" />
+        <AssociationConnector Association="VenueModel.FK_FacilityEventType_Facility" />
+        <AssociationConnector Association="VenueModel.FK_FacilityImage_Facility" />
+        <AssociationConnector Association="VenueModel.FK_FacilityRating_Facility" />
+        <AssociationConnector Association="VenueModel.FK_FacilityVideo_Facility" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

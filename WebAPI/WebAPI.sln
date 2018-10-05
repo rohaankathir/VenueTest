@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{B2C6488A-DBDE-4F13-8D52-26F2585DC4EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI.Tests", "WebAPI.Tests\WebAPI.Tests.csproj", "{879B1C43-62CB-4BB1-AEC9-B5883A0E41E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPILoadTest", "WebAPILoadTest\WebAPILoadTest.csproj", "{387590C6-3ABB-4768-BF35-23322F6EB75C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FDC58D98-C8F0-4DC2-85C5-B34092BE27CA}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI.Repository", "WebAPI.Repository\WebAPI.Repository.csproj", "{24DC430F-36FF-4258-B632-F7F04D1CA8C8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{FEE9D5E3-49FF-4AF9-A949-E3250D2EF3D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework", "Core\Framework\Framework.csproj", "{786AF29A-9001-4224-81B9-E3443D65B949}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		uat1|Any CPU = uat1|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B2C6488A-DBDE-4F13-8D52-26F2585DC4EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2C6488A-DBDE-4F13-8D52-26F2585DC4EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2C6488A-DBDE-4F13-8D52-26F2585DC4EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2C6488A-DBDE-4F13-8D52-26F2585DC4EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2C6488A-DBDE-4F13-8D52-26F2585DC4EC}.uat1|Any CPU.ActiveCfg = Release|Any CPU
+		{B2C6488A-DBDE-4F13-8D52-26F2585DC4EC}.uat1|Any CPU.Build.0 = Release|Any CPU
+		{879B1C43-62CB-4BB1-AEC9-B5883A0E41E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{879B1C43-62CB-4BB1-AEC9-B5883A0E41E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{879B1C43-62CB-4BB1-AEC9-B5883A0E41E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{879B1C43-62CB-4BB1-AEC9-B5883A0E41E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{879B1C43-62CB-4BB1-AEC9-B5883A0E41E3}.uat1|Any CPU.ActiveCfg = Release|Any CPU
+		{879B1C43-62CB-4BB1-AEC9-B5883A0E41E3}.uat1|Any CPU.Build.0 = Release|Any CPU
+		{387590C6-3ABB-4768-BF35-23322F6EB75C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{387590C6-3ABB-4768-BF35-23322F6EB75C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{387590C6-3ABB-4768-BF35-23322F6EB75C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{387590C6-3ABB-4768-BF35-23322F6EB75C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{387590C6-3ABB-4768-BF35-23322F6EB75C}.uat1|Any CPU.ActiveCfg = Release|Any CPU
+		{24DC430F-36FF-4258-B632-F7F04D1CA8C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24DC430F-36FF-4258-B632-F7F04D1CA8C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24DC430F-36FF-4258-B632-F7F04D1CA8C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24DC430F-36FF-4258-B632-F7F04D1CA8C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24DC430F-36FF-4258-B632-F7F04D1CA8C8}.uat1|Any CPU.ActiveCfg = Release|Any CPU
+		{24DC430F-36FF-4258-B632-F7F04D1CA8C8}.uat1|Any CPU.Build.0 = Release|Any CPU
+		{786AF29A-9001-4224-81B9-E3443D65B949}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{786AF29A-9001-4224-81B9-E3443D65B949}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{786AF29A-9001-4224-81B9-E3443D65B949}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{786AF29A-9001-4224-81B9-E3443D65B949}.Release|Any CPU.Build.0 = Release|Any CPU
+		{786AF29A-9001-4224-81B9-E3443D65B949}.uat1|Any CPU.ActiveCfg = Release|Any CPU
+		{786AF29A-9001-4224-81B9-E3443D65B949}.uat1|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{786AF29A-9001-4224-81B9-E3443D65B949} = {FEE9D5E3-49FF-4AF9-A949-E3250D2EF3D1}
+	EndGlobalSection
+EndGlobal

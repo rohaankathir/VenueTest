@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{24DC430F-36FF-4258-B632-F7F04D1CA8C8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebAPI.Repository</RootNamespace>
+    <AssemblyName>WebAPI.Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dal\City.cs">
+      <DependentUpon>VenueDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\CityDal.cs" />
+    <Compile Include="Dal\Country.cs">
+      <DependentUpon>VenueDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\CountryDal.cs" />
+    <Compile Include="Dal\Currency.cs">
+      <DependentUpon>VenueDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\CurrencyDal.cs" />
+    <Compile Include="Dal\EventStyle.cs">
+      <DependentUpon>VenueDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\EventStyleDal.cs" />
+    <Compile Include="Dal\EventType.cs">
+      <DependentUpon>VenueDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\EventTypeDal.cs" />
+    <Compile Include="Dal\Facility.cs">
+      <DependentUpon>VenueDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\FacilityDal.cs" />
+    <Compile Include="Dal\FacilityEventStyle.cs">
+      <DependentUpon>VenueDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\FacilityEventType.cs">
+      <DependentUpon>VenueDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\FacilityImage.cs">
+      <DependentUpon>VenueDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\FacilityRating.cs">
+      <DependentUpon>VenueDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\FacilityVideo.cs">
+      <DependentUpon>VenueDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\MemberType.cs">
+      <DependentUpon>VenueDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\MemberTypeDal.cs" />
+    <Compile Include="Dal\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>VenueDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\sp_helpdiagrams_Result.cs">
+      <DependentUpon>VenueDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\sysdiagram.cs">
+      <DependentUpon>VenueDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\User.cs">
+      <DependentUpon>VenueDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\UserAccessLevel.cs">
+      <DependentUpon>VenueDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\UserDal.cs" />
+    <Compile Include="Dal\UserGroup.cs">
+      <DependentUpon>VenueDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\UserGroupDal.cs" />
+    <Compile Include="Dal\UserPassword.cs">
+      <DependentUpon>VenueDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\Venue.cs">
+      <DependentUpon>VenueDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\VenueDal.cs" />
+    <Compile Include="Dal\VenueDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VenueDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\VenueDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VenueDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\VenueDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VenueDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\VenueRating.cs">
+      <DependentUpon>VenueDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\VenueType.cs">
+      <DependentUpon>VenueDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\VenueTypeDal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="Dal\VenueDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>VenueDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Dal\VenueDataModel.edmx.diagram">
+      <DependentUpon>VenueDataModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dal\VenueDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VenueDataModel.edmx</DependentUpon>
+      <LastGenOutput>VenueDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Dal\VenueDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VenueDataModel.edmx</DependentUpon>
+      <LastGenOutput>VenueDataModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,5 @@
+D:\Rohaan\GitHub\Venue\WebAPI\Core\Framework\bin\Debug\Core.Framework.dll
+D:\Rohaan\GitHub\Venue\WebAPI\Core\Framework\bin\Debug\Core.Framework.pdb
+D:\Rohaan\GitHub\Venue\WebAPI\Core\Framework\obj\Debug\Framework.csprojResolveAssemblyReference.cache
+D:\Rohaan\GitHub\Venue\WebAPI\Core\Framework\obj\Debug\Core.Framework.dll
+D:\Rohaan\GitHub\Venue\WebAPI\Core\Framework\obj\Debug\Core.Framework.pdb

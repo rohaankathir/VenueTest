@@ -1,0 +1,511 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VenueModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="VenueEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(VenueModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(VenueModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="Cities" EntityType="VenueModel.City" />
+    <EntitySet Name="Countries" EntityType="VenueModel.Country" />
+    <EntitySet Name="Currencies" EntityType="VenueModel.Currency" />
+    <EntitySet Name="EventStyles" EntityType="VenueModel.EventStyle" />
+    <EntitySet Name="EventTypes" EntityType="VenueModel.EventType" />
+    <EntitySet Name="Facilities" EntityType="VenueModel.Facility" />
+    <EntitySet Name="FacilityEventStyles" EntityType="VenueModel.FacilityEventStyle" />
+    <EntitySet Name="FacilityEventTypes" EntityType="VenueModel.FacilityEventType" />
+    <EntitySet Name="FacilityImages" EntityType="VenueModel.FacilityImage" />
+    <EntitySet Name="FacilityRatings" EntityType="VenueModel.FacilityRating" />
+    <EntitySet Name="FacilityVideos" EntityType="VenueModel.FacilityVideo" />
+    <EntitySet Name="MemberTypes" EntityType="VenueModel.MemberType" />
+    <EntitySet Name="sysdiagrams" EntityType="VenueModel.sysdiagram" />
+    <EntitySet Name="Users" EntityType="VenueModel.User" />
+    <EntitySet Name="UserAccessLevels" EntityType="VenueModel.UserAccessLevel" />
+    <EntitySet Name="UserGroups" EntityType="VenueModel.UserGroup" />
+    <EntitySet Name="UserPasswords" EntityType="VenueModel.UserPassword" />
+    <EntitySet Name="Venues" EntityType="VenueModel.Venue" />
+    <EntitySet Name="VenueRatings" EntityType="VenueModel.VenueRating" />
+    <EntitySet Name="VenueTypes" EntityType="VenueModel.VenueType" />
+    <AssociationSet Name="FK_Venue_Country" Association="VenueModel.FK_Venue_Country">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Venue" EntitySet="Venues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacilityEventStyle_EventStyle" Association="VenueModel.FK_FacilityEventStyle_EventStyle">
+      <End Role="EventStyle" EntitySet="EventStyles" />
+      <End Role="FacilityEventStyle" EntitySet="FacilityEventStyles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacilityEventType_EventType" Association="VenueModel.FK_FacilityEventType_EventType">
+      <End Role="EventType" EntitySet="EventTypes" />
+      <End Role="FacilityEventType" EntitySet="FacilityEventTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Facility_Venue" Association="VenueModel.FK_Facility_Venue">
+      <End Role="Venue" EntitySet="Venues" />
+      <End Role="Facility" EntitySet="Facilities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_MemberType" Association="VenueModel.FK_User_MemberType">
+      <End Role="MemberType" EntitySet="MemberTypes" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_UserAccessLevel" Association="VenueModel.FK_User_UserAccessLevel">
+      <End Role="UserAccessLevel" EntitySet="UserAccessLevels" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserPassword_User" Association="VenueModel.FK_UserPassword_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserPassword" EntitySet="UserPasswords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Venue_VenueType" Association="VenueModel.FK_Venue_VenueType">
+      <End Role="VenueType" EntitySet="VenueTypes" />
+      <End Role="Venue" EntitySet="Venues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VenueRating_Venue" Association="VenueModel.FK_VenueRating_Venue">
+      <End Role="Venue" EntitySet="Venues" />
+      <End Role="VenueRating" EntitySet="VenueRatings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacilityEventStyle_Facility" Association="VenueModel.FK_FacilityEventStyle_Facility">
+      <End Role="Facility" EntitySet="Facilities" />
+      <End Role="FacilityEventStyle" EntitySet="FacilityEventStyles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacilityEventType_Facility" Association="VenueModel.FK_FacilityEventType_Facility">
+      <End Role="Facility" EntitySet="Facilities" />
+      <End Role="FacilityEventType" EntitySet="FacilityEventTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacilityImage_Facility" Association="VenueModel.FK_FacilityImage_Facility">
+      <End Role="Facility" EntitySet="Facilities" />
+      <End Role="FacilityImage" EntitySet="FacilityImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacilityRating_Facility" Association="VenueModel.FK_FacilityRating_Facility">
+      <End Role="Facility" EntitySet="Facilities" />
+      <End Role="FacilityRating" EntitySet="FacilityRatings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacilityVideo_Facility" Association="VenueModel.FK_FacilityVideo_Facility">
+      <End Role="Facility" EntitySet="Facilities" />
+      <End Role="FacilityVideo" EntitySet="FacilityVideos" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityId" />
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Venues" Relationship="VenueModel.FK_Venue_Country" FromRole="Country" ToRole="Venue" />
+  </EntityType>
+  <EntityType Name="Currency">
+    <Key>
+      <PropertyRef Name="CurrencyId" />
+    </Key>
+    <Property Name="CurrencyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CurrencyCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Symbol" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="EventStyle">
+    <Key>
+      <PropertyRef Name="EventStyleId" />
+    </Key>
+    <Property Name="EventStyleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FacilityEventStyles" Relationship="VenueModel.FK_FacilityEventStyle_EventStyle" FromRole="EventStyle" ToRole="FacilityEventStyle" />
+  </EntityType>
+  <EntityType Name="EventType">
+    <Key>
+      <PropertyRef Name="EventTypeId" />
+    </Key>
+    <Property Name="EventTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FacilityEventTypes" Relationship="VenueModel.FK_FacilityEventType_EventType" FromRole="EventType" ToRole="FacilityEventType" />
+  </EntityType>
+  <EntityType Name="Facility">
+    <Key>
+      <PropertyRef Name="FacilityId" />
+    </Key>
+    <Property Name="FacilityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VenueId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Height" Type="Decimal" Precision="35" Scale="6" />
+    <Property Name="Length" Type="Decimal" Precision="35" Scale="6" />
+    <Property Name="Width" Type="Decimal" Precision="35" Scale="6" />
+    <Property Name="MinPack" Type="Int32" />
+    <Property Name="MaxPack" Type="Int32" />
+    <Property Name="MinBudget" Type="Decimal" Precision="35" Scale="6" />
+    <Property Name="MaxBudget" Type="Decimal" Precision="35" Scale="6" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Venue" Relationship="VenueModel.FK_Facility_Venue" FromRole="Facility" ToRole="Venue" />
+    <NavigationProperty Name="FacilityEventStyles" Relationship="VenueModel.FK_FacilityEventStyle_Facility" FromRole="Facility" ToRole="FacilityEventStyle" />
+    <NavigationProperty Name="FacilityEventTypes" Relationship="VenueModel.FK_FacilityEventType_Facility" FromRole="Facility" ToRole="FacilityEventType" />
+    <NavigationProperty Name="FacilityImages" Relationship="VenueModel.FK_FacilityImage_Facility" FromRole="Facility" ToRole="FacilityImage" />
+    <NavigationProperty Name="FacilityRatings" Relationship="VenueModel.FK_FacilityRating_Facility" FromRole="Facility" ToRole="FacilityRating" />
+    <NavigationProperty Name="FacilityVideos" Relationship="VenueModel.FK_FacilityVideo_Facility" FromRole="Facility" ToRole="FacilityVideo" />
+  </EntityType>
+  <EntityType Name="FacilityEventStyle">
+    <Key>
+      <PropertyRef Name="FacilityEventStyleId" />
+    </Key>
+    <Property Name="FacilityEventStyleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FacilityId" Type="Int32" Nullable="false" />
+    <Property Name="EventStyleId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="EventStyle" Relationship="VenueModel.FK_FacilityEventStyle_EventStyle" FromRole="FacilityEventStyle" ToRole="EventStyle" />
+    <NavigationProperty Name="Facility" Relationship="VenueModel.FK_FacilityEventStyle_Facility" FromRole="FacilityEventStyle" ToRole="Facility" />
+  </EntityType>
+  <EntityType Name="FacilityEventType">
+    <Key>
+      <PropertyRef Name="FacilityEventTypeId" />
+    </Key>
+    <Property Name="FacilityEventTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FacilityId" Type="Int32" Nullable="false" />
+    <Property Name="EventTypeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="EventType" Relationship="VenueModel.FK_FacilityEventType_EventType" FromRole="FacilityEventType" ToRole="EventType" />
+    <NavigationProperty Name="Facility" Relationship="VenueModel.FK_FacilityEventType_Facility" FromRole="FacilityEventType" ToRole="Facility" />
+  </EntityType>
+  <EntityType Name="FacilityImage">
+    <Key>
+      <PropertyRef Name="FacilityImageId" />
+    </Key>
+    <Property Name="FacilityImageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FacilityId" Type="Int32" Nullable="false" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="Path" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Facility" Relationship="VenueModel.FK_FacilityImage_Facility" FromRole="FacilityImage" ToRole="Facility" />
+  </EntityType>
+  <EntityType Name="FacilityRating">
+    <Key>
+      <PropertyRef Name="FacilityRatingId" />
+    </Key>
+    <Property Name="FacilityRatingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FacilityId" Type="Int32" Nullable="false" />
+    <Property Name="Rating" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Facility" Relationship="VenueModel.FK_FacilityRating_Facility" FromRole="FacilityRating" ToRole="Facility" />
+  </EntityType>
+  <EntityType Name="FacilityVideo">
+    <Key>
+      <PropertyRef Name="FacilityVideoId" />
+    </Key>
+    <Property Name="FacilityVideoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FacilityId" Type="Int32" Nullable="false" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="Path" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Facility" Relationship="VenueModel.FK_FacilityVideo_Facility" FromRole="FacilityVideo" ToRole="Facility" />
+  </EntityType>
+  <EntityType Name="MemberType">
+    <Key>
+      <PropertyRef Name="MemberTypeId" />
+    </Key>
+    <Property Name="MemberTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="VenueModel.FK_User_MemberType" FromRole="MemberType" ToRole="User" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserAccessLevelId" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="MemberTypeId" Type="Int32" Nullable="false" />
+    <Property Name="MobileNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ContactPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Address2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="CityId" Type="Int32" Nullable="false" />
+    <Property Name="Website" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MemberType" Relationship="VenueModel.FK_User_MemberType" FromRole="User" ToRole="MemberType" />
+    <NavigationProperty Name="UserAccessLevel" Relationship="VenueModel.FK_User_UserAccessLevel" FromRole="User" ToRole="UserAccessLevel" />
+    <NavigationProperty Name="UserPasswords" Relationship="VenueModel.FK_UserPassword_User" FromRole="User" ToRole="UserPassword" />
+  </EntityType>
+  <EntityType Name="UserAccessLevel">
+    <Key>
+      <PropertyRef Name="UserAccessLevelId" />
+    </Key>
+    <Property Name="UserAccessLevelId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="VenueModel.FK_User_UserAccessLevel" FromRole="UserAccessLevel" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserGroup">
+    <Key>
+      <PropertyRef Name="UserGroupId" />
+    </Key>
+    <Property Name="UserGroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="UserPassword">
+    <Key>
+      <PropertyRef Name="UserPasswordId" />
+    </Key>
+    <Property Name="UserPasswordId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="VenueModel.FK_UserPassword_User" FromRole="UserPassword" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Venue">
+    <Key>
+      <PropertyRef Name="VenueId" />
+    </Key>
+    <Property Name="VenueId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VenueTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Address1" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Address2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="CityId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Country" Relationship="VenueModel.FK_Venue_Country" FromRole="Venue" ToRole="Country" />
+    <NavigationProperty Name="Facilities" Relationship="VenueModel.FK_Facility_Venue" FromRole="Venue" ToRole="Facility" />
+    <NavigationProperty Name="VenueType" Relationship="VenueModel.FK_Venue_VenueType" FromRole="Venue" ToRole="VenueType" />
+    <NavigationProperty Name="VenueRatings" Relationship="VenueModel.FK_VenueRating_Venue" FromRole="Venue" ToRole="VenueRating" />
+  </EntityType>
+  <EntityType Name="VenueRating">
+    <Key>
+      <PropertyRef Name="VenueRatingId" />
+    </Key>
+    <Property Name="VenueRatingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VenueId" Type="Int32" Nullable="false" />
+    <Property Name="Rating" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Venue" Relationship="VenueModel.FK_VenueRating_Venue" FromRole="VenueRating" ToRole="Venue" />
+  </EntityType>
+  <EntityType Name="VenueType">
+    <Key>
+      <PropertyRef Name="VenueTypeId" />
+    </Key>
+    <Property Name="VenueTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Venues" Relationship="VenueModel.FK_Venue_VenueType" FromRole="VenueType" ToRole="Venue" />
+  </EntityType>
+  <Association Name="FK_Venue_Country">
+    <End Type="VenueModel.Country" Role="Country" Multiplicity="1" />
+    <End Type="VenueModel.Venue" Role="Venue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="Venue">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacilityEventStyle_EventStyle">
+    <End Type="VenueModel.EventStyle" Role="EventStyle" Multiplicity="1" />
+    <End Type="VenueModel.FacilityEventStyle" Role="FacilityEventStyle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventStyle">
+        <PropertyRef Name="EventStyleId" />
+      </Principal>
+      <Dependent Role="FacilityEventStyle">
+        <PropertyRef Name="EventStyleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacilityEventType_EventType">
+    <End Type="VenueModel.EventType" Role="EventType" Multiplicity="1" />
+    <End Type="VenueModel.FacilityEventType" Role="FacilityEventType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventType">
+        <PropertyRef Name="EventTypeId" />
+      </Principal>
+      <Dependent Role="FacilityEventType">
+        <PropertyRef Name="EventTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Facility_Venue">
+    <End Type="VenueModel.Venue" Role="Venue" Multiplicity="1" />
+    <End Type="VenueModel.Facility" Role="Facility" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Venue">
+        <PropertyRef Name="VenueId" />
+      </Principal>
+      <Dependent Role="Facility">
+        <PropertyRef Name="VenueId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_MemberType">
+    <End Type="VenueModel.MemberType" Role="MemberType" Multiplicity="1" />
+    <End Type="VenueModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MemberType">
+        <PropertyRef Name="MemberTypeId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="MemberTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_UserAccessLevel">
+    <End Type="VenueModel.UserAccessLevel" Role="UserAccessLevel" Multiplicity="1" />
+    <End Type="VenueModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccessLevel">
+        <PropertyRef Name="UserAccessLevelId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="UserAccessLevelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserPassword_User">
+    <End Type="VenueModel.User" Role="User" Multiplicity="1" />
+    <End Type="VenueModel.UserPassword" Role="UserPassword" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserPassword">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Venue_VenueType">
+    <End Type="VenueModel.VenueType" Role="VenueType" Multiplicity="1" />
+    <End Type="VenueModel.Venue" Role="Venue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VenueType">
+        <PropertyRef Name="VenueTypeId" />
+      </Principal>
+      <Dependent Role="Venue">
+        <PropertyRef Name="VenueTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VenueRating_Venue">
+    <End Type="VenueModel.Venue" Role="Venue" Multiplicity="1" />
+    <End Type="VenueModel.VenueRating" Role="VenueRating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Venue">
+        <PropertyRef Name="VenueId" />
+      </Principal>
+      <Dependent Role="VenueRating">
+        <PropertyRef Name="VenueId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacilityEventStyle_Facility">
+    <End Type="VenueModel.Facility" Role="Facility" Multiplicity="1" />
+    <End Type="VenueModel.FacilityEventStyle" Role="FacilityEventStyle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facility">
+        <PropertyRef Name="FacilityId" />
+      </Principal>
+      <Dependent Role="FacilityEventStyle">
+        <PropertyRef Name="FacilityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacilityEventType_Facility">
+    <End Type="VenueModel.Facility" Role="Facility" Multiplicity="1" />
+    <End Type="VenueModel.FacilityEventType" Role="FacilityEventType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facility">
+        <PropertyRef Name="FacilityId" />
+      </Principal>
+      <Dependent Role="FacilityEventType">
+        <PropertyRef Name="FacilityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacilityImage_Facility">
+    <End Type="VenueModel.Facility" Role="Facility" Multiplicity="1" />
+    <End Type="VenueModel.FacilityImage" Role="FacilityImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facility">
+        <PropertyRef Name="FacilityId" />
+      </Principal>
+      <Dependent Role="FacilityImage">
+        <PropertyRef Name="FacilityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacilityRating_Facility">
+    <End Type="VenueModel.Facility" Role="Facility" Multiplicity="1" />
+    <End Type="VenueModel.FacilityRating" Role="FacilityRating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facility">
+        <PropertyRef Name="FacilityId" />
+      </Principal>
+      <Dependent Role="FacilityRating">
+        <PropertyRef Name="FacilityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacilityVideo_Facility">
+    <End Type="VenueModel.Facility" Role="Facility" Multiplicity="1" />
+    <End Type="VenueModel.FacilityVideo" Role="FacilityVideo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facility">
+        <PropertyRef Name="FacilityId" />
+      </Principal>
+      <Dependent Role="FacilityVideo">
+        <PropertyRef Name="FacilityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
