@@ -1,0 +1,14 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/DB
+/WebAPI/packages
+/WebAPI/WebAPI/bin
+/WebAPI/WebAPI/obj/Debug/edmxResourcesToEmbed/Dal
+/WebAPI/WebAPI/obj/Debug/TempPE
+/WebAPI/WebAPI.Tests/bin/Debug/roslyn
+/WebAPI/WebAPI.Tests/bin/Debug
+/WebAPI/WebAPI.Tests/obj/Debug
+/WebAPI/WebAPI.Tests/obj/Debug
+/WebAPI/WebAPI.Tests/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
